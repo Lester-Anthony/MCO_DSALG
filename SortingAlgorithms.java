@@ -11,33 +11,90 @@ public class SortingAlgorithms {
      */
 
     public void insertionSort(Record[] arr, int n) {
-        // TODO: Implement this sorting algorithm here.
-        Record[] sortedArr = new Record[n];
-        int i, key, j;
-        for (i = 1; i < n; i++) {
-            key = arr[i].getIdNumber();
-            j = i - 1;
-    
-            // Move elements of arr[0..i-1],
-            // that are greater than key,
-            // to one position ahead of their
-            // current position
-            while (j >= 0 && arr[j].getIdNumber() > key) {
+        for (int i = 1; i < n; i++) {
+            Record key = arr[i];
+            int j = i - 1;
+            while (j >= 0 && arr[j].getIdNumber() > key.getIdNumber()) {
                 arr[j + 1] = arr[j];
-                j = j - 1;
+                j--;
             }
-            sortedArr[j + 1].getIdNumber = key;
+            arr[j + 1] = key;
         }
     }
 
     public void selectionSort(Record[] arr, int n) {
-        // TODO: Implement this sorting algorithm here.
-        
+        for (int i = 0; i < n - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[j].getIdNumber() < arr[minIndex].getIdNumber()) {
+                    minIndex = j;
+                }
+            }
+            Record temp = arr[minIndex];
+            arr[minIndex] = arr[i];
+            arr[i] = temp;
+        }
     }
 
     public void mergeSort(Record[] arr, int p, int r) {
-        // TODO: Implement this sorting algorithm here.
+        if (p < r) {
+            int q = (p + r) / 2;
+            mergeSort(arr, p, q);
+            mergeSort(arr, q + 1, r);
+            merge(arr, p, q, r);
+        }
+    }
 
+    private void merge(Record[] arr, int p, int q, int r) {
+        int leftSide = q - p + 1;
+        int rightSide = r - q;
+
+        Record[] left = new Record[leftSide];
+        Record[] right = new Record[rightSide];
+
+        for (int i = 0; i < leftSide; i++) {
+            left[i] = arr[p + i];
+        }
+        for (int j = 0; j < rightSide; j++) {
+            right[j] = arr[q + 1 + j];
+        }
+
+        int i = 0, j = 0, k = p;
+
+        while (i < leftSide && j < rightSide) {
+            if (left[i].getIdNumber() <= right[j].getIdNumber()) {
+                arr[k] = left[i];
+                i++;
+            } else {
+                arr[k] = right[j];
+                j++;
+            }
+            k++;
+        }
+
+        while (i < leftSide) {
+            arr[k] = left[i];
+            i++;
+            k++;
+        }
+
+        while (j < rightSide) {
+            arr[k] = right[j];
+            j++;
+            k++;
+        }
+    }
+
+    public void bubbleSort(Record[] arr, int n) {
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (arr[j].getIdNumber() > arr[j + 1].getIdNumber()) {
+                    Record temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
     }
 
     /*
@@ -45,8 +102,5 @@ public class SortingAlgorithms {
      * ones given above. Make sure that the method accepts an array of
      * records
      */
-    public void bubbleSort(Record[] arr, int p, int r) {
-
-    }
 
 }
