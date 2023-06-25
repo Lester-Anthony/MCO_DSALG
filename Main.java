@@ -55,7 +55,7 @@ public class Main {
             insertionSortAvg = time / 5f;
             
             System.out.print("Insertion Sort | ");
-            if(sortingData.isSorted(recordData) == true)
+            if(frequencyData.isSorted(recordData) == true)
                 System.out.println("SORTED");
             else
                 System.out.println("NOT SORTED");
@@ -76,7 +76,7 @@ public class Main {
             selectionSortAve = time / 5f;
             
             System.out.print("Selection Sort | ");
-            if(sortingData.isSorted(recordData) == true)
+            if(frequencyData.isSorted(recordData) == true)
                 System.out.println("SORTED");
             else
                 System.out.println("NOT SORTED");
@@ -97,7 +97,7 @@ public class Main {
             mergeSortAve = time / 5f;
             
             System.out.print("Merge Sort | ");
-            if(sortingData.isSorted(recordData) == true)
+            if(frequencyData.isSorted(recordData) == true)
                 System.out.println("SORTED");
             else
                 System.out.println("NOT SORTED");
@@ -117,7 +117,7 @@ public class Main {
             bubbleSortAve = time / 5f;
             
             System.out.print("Bubble Sort | ");
-            if(sortingData.isSorted(recordData) == true)
+            if(frequencyData.isSorted(recordData) == true)
                 System.out.println("SORTED");
             else
                 System.out.println("NOT SORTED");

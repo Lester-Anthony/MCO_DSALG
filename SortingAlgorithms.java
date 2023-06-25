@@ -112,15 +112,5 @@ public class SortingAlgorithms {
      * ones given above. Make sure that the method accepts an array of
      * records
      */
-    
-    public boolean isSorted(Record[] arr) {
-        int n = arr.length;
-        for (int i = 1; i < n; i++) {
-            if (arr[i].getIdNumber() < arr[i - 1].getIdNumber()) {
-                return false;
-            }
-        }
-        return true;
-    }
 
 }

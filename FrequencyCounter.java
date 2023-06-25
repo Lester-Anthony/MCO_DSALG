@@ -153,4 +153,14 @@ public class FrequencyCounter {
         }
         return count;
     }
+
+    public boolean isSorted(Record[] arr) {
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            if (arr[i].getIdNumber() < arr[i - 1].getIdNumber()) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
