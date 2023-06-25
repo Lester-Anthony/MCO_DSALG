@@ -56,6 +56,7 @@ public class Main {
             
             System.out.println("Insertion Sort");
             System.out.println("Elapsed Time: " + insertionSortAvg + " milliseconds");
+            recordData = fileReaderObject.readFile(path);
             System.out.println("Frequency Count: " + frequencyData.insertionSort(recordData, n) + "\n");
             
             
@@ -72,6 +73,7 @@ public class Main {
             
             System.out.println("Selection Sort");
             System.out.println("Elapsed Time: " + selectionSortAve + " milliseconds");
+            recordData = fileReaderObject.readFile(path);
             System.out.println("Frequency Count: " + frequencyData.selectionSort(recordData, n) + "\n");
             
             
@@ -88,6 +90,7 @@ public class Main {
             
             System.out.println("Merge Sort");
             System.out.println("Elapsed Time: " + mergeSortAve + " milliseconds");
+            recordData = fileReaderObject.readFile(path);
             System.out.println("Frequency Count: " + frequencyData.mergeSort(recordData, 0, n - 1) + "\n");
             
             // Bubble Sort
@@ -103,6 +106,7 @@ public class Main {
             
             System.out.println("Bubble Sort");
             System.out.println("Elapsed Time: " + bubbleSortAve + " milliseconds");
+            recordData = fileReaderObject.readFile(path);
             System.out.println("Frequency Count: " + frequencyData.bubbleSort(recordData, n) + "\n");
         }
     }
