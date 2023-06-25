@@ -1,107 +1,156 @@
-/* This file contains implementations of sorting algorithms.
- * You are NOT allowed to modify any of the given method headers.
- */
+public class FrequencyCounter {
+    
+    public long insertionSort(Record[] arr, int n) {
+        long count = 0;
 
-public class SortingAlgorithms {
-
-    /*
-     * You may define additional helper functions here if you need to.
-     * Make sure the helper functions have the private access modifier, as
-     * they will only be used in this class.
-     */
-
-    public void insertionSort(Record[] arr, int n) {
-        for (int i = 1; i < n; i++) {                                        
+        count++;
+        for (int i = 1; i < n; i++) {    
+            count++;                                    
             Record key = arr[i];                                                  
+            count++;                                    
             int j = i - 1;                                                             
+            count++;                                    
             while (j >= 0 && arr[j].getIdNumber() > key.getIdNumber()) {               
+                count++;                                    
                 arr[j + 1] = arr[j];
+                count++;                                    
                 j--;
             }
+            count++;                                    
             arr[j + 1] = key;
         }
+
+        return count;
     }
 
-    public void selectionSort(Record[] arr, int n) {
+    public long selectionSort(Record[] arr, int n) {
+        long count = 0;
+
+        count++;
         for (int i = 0; i < n - 1; i++) {
             int minIndex = i;
+            count++;
             for (int j = i + 1; j < n; j++) {
+                count++;
                 if (arr[j].getIdNumber() < arr[minIndex].getIdNumber()) {
+                    count++;
                     minIndex = j;
                 }
             }
+            count++;
             Record temp = arr[minIndex];
+            count++;
             arr[minIndex] = arr[i];
+            count++;
             arr[i] = temp;
         }
+
+        return count;
     }
 
-    public void mergeSort(Record[] arr, int p, int r) {
+    public long mergeSort(Record[] arr, int p, int r) {
+        long count = 0;
+        count++;
         if (p < r) {
+            count++;
             int q = (p + r) / 2;
-            mergeSort(arr, p, q);
-            mergeSort(arr, q + 1, r);
+            count++;
+            count += mergeSort(arr, p, q);
+            count++;
+            count += mergeSort(arr, q + 1, r);
+            count++;
             merge(arr, p, q, r);
         }
+        return count;
     }
 
-    private void merge(Record[] arr, int p, int q, int r) {
+    private long merge(Record[] arr, int p, int q, int r) {
+        long count = 0;
+
+        count++;
         int leftSide = q - p + 1;
+        count++;
         int rightSide = r - q;
-
+        
+        count++;
         Record[] left = new Record[leftSide];
+        count++;
         Record[] right = new Record[rightSide];
-
+        
+        count++;
         for (int i = 0; i < leftSide; i++) {
+            count++;
             left[i] = arr[p + i];
         }
+        count++;
         for (int j = 0; j < rightSide; j++) {
+            count++;
             right[j] = arr[q + 1 + j];
         }
-
+        
+        count++;
         int i = 0, j = 0, k = p;
-
+        
+        count++;
         while (i < leftSide && j < rightSide) {
+            count++;
             if (left[i].getIdNumber() <= right[j].getIdNumber()) {
+                count++;
                 arr[k] = left[i];
+                count++;
                 i++;
-            } else {
+            } 
+            else {
+                count++;
                 arr[k] = right[j];
+                count++;
                 j++;
             }
+            count++;
             k++;
         }
-
+        
+        count++;
         while (i < leftSide) {
+            count++;
             arr[k] = left[i];
+            count++;
             i++;
+            count++;
+            k++;
+        }
+        
+        count++;
+        while (j < rightSide) {
+            count++;
+            arr[k] = right[j];
+            count++;
+            j++;
+            count++;
             k++;
         }
 
-        while (j < rightSide) {
-            arr[k] = right[j];
-            j++;
-            k++;
-        }
+        return count;
     }
     
-    /*
-     * Define AT LEAST ONE more sorting algorithm here, apart from the
-     * ones given above. Make sure that the method accepts an array of
-     * records
-     */
-    
-    public void bubbleSort(Record[] arr, int n) {
+    public long bubbleSort(Record[] arr, int n) {
+        long count = 0;
+
+        count++;
         for (int i = 0; i < n - 1; i++) {
+            count++;
             for (int j = 0; j < n - i - 1; j++) {
+                count++;
                 if (arr[j].getIdNumber() > arr[j + 1].getIdNumber()) {
+                    count++;
                     Record temp = arr[j];
+                    count++;
                     arr[j] = arr[j + 1];
+                    count++;
                     arr[j + 1] = temp;
                 }
             }
         }
+        return count;
     }
-    
-    
 }
