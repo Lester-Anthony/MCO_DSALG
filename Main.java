@@ -46,15 +46,19 @@ public class Main {
     
             // Insertion Sort
             for(i = 0; i < 5; i++) {
+                recordData = fileReaderObject.readFile(path);
                 start = System.currentTimeMillis();
                 sortingData.insertionSort(recordData, n);
                 end = System.currentTimeMillis();
                 time += end - start;
-                recordData = fileReaderObject.readFile(path);
             }
             insertionSortAvg = time / 5f;
             
-            System.out.println("Insertion Sort");
+            System.out.print("Insertion Sort | ");
+            if(sortingData.isSorted(recordData) == true)
+                System.out.println("SORTED");
+            else
+                System.out.println("NOT SORTED");
             System.out.println("Elapsed Time: " + insertionSortAvg + " milliseconds");
             recordData = fileReaderObject.readFile(path);
             System.out.println("Frequency Count: " + frequencyData.insertionSort(recordData, n) + "\n");
@@ -63,15 +67,19 @@ public class Main {
             // Selection Sort
             time = 0;
             for(i = 0; i < 5; i++) {
+                recordData = fileReaderObject.readFile(path);
                 start = System.currentTimeMillis();
                 sortingData.selectionSort(recordData, n);
                 end = System.currentTimeMillis();
                 time += end - start;
-                recordData = fileReaderObject.readFile(path);
             }
             selectionSortAve = time / 5f;
             
-            System.out.println("Selection Sort");
+            System.out.print("Selection Sort | ");
+            if(sortingData.isSorted(recordData) == true)
+                System.out.println("SORTED");
+            else
+                System.out.println("NOT SORTED");
             System.out.println("Elapsed Time: " + selectionSortAve + " milliseconds");
             recordData = fileReaderObject.readFile(path);
             System.out.println("Frequency Count: " + frequencyData.selectionSort(recordData, n) + "\n");
@@ -80,15 +88,19 @@ public class Main {
             // Merge Sort
             time = 0;
             for(i = 0; i < 5; i++) {
+                recordData = fileReaderObject.readFile(path);
                 start = System.currentTimeMillis();
                 sortingData.mergeSort(recordData, 0, n - 1);
                 end = System.currentTimeMillis();
                 time += end - start;
-                recordData = fileReaderObject.readFile(path);
             }
             mergeSortAve = time / 5f;
             
-            System.out.println("Merge Sort");
+            System.out.print("Merge Sort | ");
+            if(sortingData.isSorted(recordData) == true)
+                System.out.println("SORTED");
+            else
+                System.out.println("NOT SORTED");
             System.out.println("Elapsed Time: " + mergeSortAve + " milliseconds");
             recordData = fileReaderObject.readFile(path);
             System.out.println("Frequency Count: " + frequencyData.mergeSort(recordData, 0, n - 1) + "\n");
@@ -96,15 +108,19 @@ public class Main {
             // Bubble Sort
             time = 0;
             for(i = 0; i < 5; i++) {
+                recordData = fileReaderObject.readFile(path);
                 start = System.currentTimeMillis();
                 sortingData.bubbleSort(recordData, n);
                 end = System.currentTimeMillis();
                 time += end - start;
-                recordData = fileReaderObject.readFile(path);
             }
             bubbleSortAve = time / 5f;
             
-            System.out.println("Bubble Sort");
+            System.out.print("Bubble Sort | ");
+            if(sortingData.isSorted(recordData) == true)
+                System.out.println("SORTED");
+            else
+                System.out.println("NOT SORTED");
             System.out.println("Elapsed Time: " + bubbleSortAve + " milliseconds");
             recordData = fileReaderObject.readFile(path);
             System.out.println("Frequency Count: " + frequencyData.bubbleSort(recordData, n) + "\n");
