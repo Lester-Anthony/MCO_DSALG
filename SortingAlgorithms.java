@@ -106,11 +106,4 @@ public class SortingAlgorithms {
     }
 
     // (n+1) + (n) (n+1)/2 + (n) (n+1)/2 + (n) (n+1)/2 + (n) (n+1)/2 = 2n^2 + 3n + 1
-
-    /*
-     * Define AT LEAST ONE more sorting algorithm here, apart from the
-     * ones given above. Make sure that the method accepts an array of
-     * records
-     */
-
 }
